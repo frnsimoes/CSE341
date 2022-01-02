@@ -8,7 +8,12 @@ fun countdown (x: int) =
   then []
   else x :: countdown(x-1)
 
-fun append (xs : int list, ys : int list)=
+fun append (xs : int list, ys : int list) =
   if null xs
   then ys
-  else (hd xs) :: (append((tl xs) ys))
+  else (hd xs) :: append((tl xs), ys)
+
+fun firsts (xs: (int * int) list) =
+  if null xs
+  then []
+  else (#1 (hd xs)) :: firsts(tl xs)
